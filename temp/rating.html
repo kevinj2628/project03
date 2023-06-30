@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="badge bg-primary text-wrap" style="width: 27.5rem;">
+      Agregar calificacion
+    </div>
+
+    <form method="POST" action="{{ url_for('ad_rating') }}">
+    <p style="font-family:verdana">
+    Elija su pelicula:<SELECT id="idpelicula" name="idpelicula" style="font-family:verdana">
+    {% for n in ListaPelicula %}
+      <OPTION value={{n[0]}}>{{n[1]}}</OPTION>
+    {% endfor %}
+    </SELECT>
+
+    Elija su calificacion:<SELECT id="calificaciones" name="calificaciones" style="font-family:verdana">
+      <OPTION value="1">1</OPTION>
+      <OPTION value="2">2</OPTION>
+      <OPTION value="3">3</OPTION>
+      <OPTION value="4">4</OPTION>
+      <OPTION value="5">5</OPTION>
+    </SELECT>
+    <input type='submit'>
+    </p>
+
+
+
+
+
+  </div>
+
+</div>
+
+
+{% endblock %}
