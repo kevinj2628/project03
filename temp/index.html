@@ -1,0 +1,87 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="row">
+  <div class="col-md-5">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-light alert-dismissible fade show" role="alert">
+      {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div class="badge bg-primary text-wrap" style="width: 27.5rem;">
+      Agregar datos del cliente
+    </div>
+    <form action="/ad_cliente" method="POST">
+      <div class="form-group">
+        <input type="text" name="cedula" placeholder="Cedula" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="text" name="apellido" placeholder="Apellido" class="form-control">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">
+          Enviar
+        </button>
+      </div>
+
+    </form>
+  </div>
+  <div class="col-md-7">
+    <div class="badge bg-primary text-wrap" style="width: 39.5rem;">
+      Listado de los clientes
+    </div>
+    <table class="table table-striped table-bordered bg-green table-sm">
+      <thead>
+        <tr>
+          <td>cedula</td>
+          <td>nombre</td>
+          <td>apellido</td>
+          <td>Seleccione</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cliente in cliente %}
+          <tr>
+            <td>{{ cliente.1 }}</td>
+            <td>{{ cliente.2 }}</td>
+            <td>{{ cliente.3 }}</td>
+            <td>
+              <a href="/edit/{{cliente.0}}" class="btn btn-secondary">Editar</a>
+              <a href="/delete/{{cliente.0}}" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+
+
+<form action="/ad_pelicula">
+  <button type="submit" class="btn btn-success">
+    Agregar Pelicula
+  </button>
+</form>
+
+<form action="/ad_rating">
+  <button type="submit" class="btn btn-success">
+    Agregar Calificacion
+  </button>
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-4 offset-m-4">
+    <div class="badge bg-primary text-wrap" style="width: 21.5rem;">
+      Agregar datos de la pelicula
+    </div>
+    <form action="/ad_pelicula" method="POST">
+      <div class="form-group">
+        <input type="text" name="nombre" placeholder="Nombre Pelicula" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="text" name="duracion" placeholder="duracion" class="form-control">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">
+          Enviar
+        </button>
+      </div>
+      </div>
+    </form>
+
+  </div>
+
+{% endblock %}

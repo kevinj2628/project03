@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<form action="/ad_rating" method="POST">
+  <input type="text" name="idpelicula" placeholder="Pelicula">
+  <input type="text" name="idcliente" placeholder="Cliente">
+  <input type="text" name="rating" placeholder="Rating">
+  <button type="submit">
+    Enviar
+  </button>
+</form>
+{% endblock %}
